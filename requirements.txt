@@ -1,8 +1,4 @@
-import streamlit as st
-import pandas as pd 
-import plotly.express as px 
-import json 
-import os
-
-
-st.set_page_config(page_title ="Simple Finance App", page_icon="💰", layout="wide")
+streamlit==1.32.0
+pandas==2.2.0
+plotly==5.18.0
+numpy==1.26.4 
