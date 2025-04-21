@@ -11,8 +11,14 @@ st.set_page_config(page_title ="Simple Finance App", page_icon="💰", layout="w
 def load_transactions(file):
     try:
         df = pd.read_csv(file)
+        df.columns = [col.strip() for col in df.columns]
+        df["Amount"] = df["Amount"].str.replace(",", "").astype(float)
+        st.write(df)
+
+        return df
     except Exception as e:
         st.error(f"Error Processing file: {str(e)}")
+        return None
 
 
 def main():
