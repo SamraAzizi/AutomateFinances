@@ -6,7 +6,14 @@ import os
 
 
 st.set_page_config(page_title ="Simple Finance App", page_icon="💰", layout="wide")
+if "categories" not in st.session_state:
+    st.session_state.categories = {
+        "Uncategorized" : []
+    }
 
+if os.path.exists("categories.json"):
+    with open("categories.json", "r") as f:
+        
 
 def load_transactions(file):
     try:
@@ -14,7 +21,7 @@ def load_transactions(file):
         df.columns = [col.strip() for col in df.columns]
         df["Amount"] = df["Amount"].str.replace(",", "").astype(float)
         df["Date"] = pd.to_datetime(df["Date"], format="%d %b %Y")
-        st.write(df)
+       
 
         return df
     except Exception as e:
