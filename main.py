@@ -13,7 +13,12 @@ if "categories" not in st.session_state:
 
 if os.path.exists("categories.json"):
     with open("categories.json", "r") as f:
-        
+        st.session_state.categories = json.load(f)
+
+
+def save_categories():
+    with open("categories.json", "w") as f:
+        json.dump(st.session_state.categories, f)
 
 def load_transactions(file):
     try:
