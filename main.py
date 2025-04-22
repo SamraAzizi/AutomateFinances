@@ -30,6 +30,10 @@ def categorized_transactions(df):
         if category == "Uncategorized" or not keywords:
             continue
 
+        lowered_keyword = [keyword.lower().strip() for keyword in keywords]
+        for idx, row in df.iterrows():
+            details = row["Details"].lower()
+
 
 
 
