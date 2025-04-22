@@ -93,7 +93,12 @@ def main():
                         st.rerun()
 
                 st.subheader("Your Expenses")
-                edited_df = st.data_editor()
+                edited_df = st.data_editor(
+                    st.session_state.debits_df[["Date", "Details", "Amount", "Category"]],
+                    column_config={
+                        "Date": st.column_config.DateColumn("Date", "DD/MM/YY")
+                    }
+                )
 
             with tab2:
                 st.write(credits_df)
