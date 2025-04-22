@@ -97,6 +97,12 @@ def main():
                     st.session_state.debits_df[["Date", "Details", "Amount", "Category"]],
                     column_config={
                         "Date": st.column_config.DateColumn("Date", "DD/MM/YY")
+                        "Amount" :st.column_config.NumberColumn("Amount", format="%.2f AED"),
+                        "Category":st.column_config.SelectBoxColumn(
+                            "Category",
+                            options=list(st.session_state.categories.keys())
+
+                        )
                     }
                 )
 
