@@ -22,6 +22,18 @@ def save_categories():
     with open(category_file, "w") as f:
         json.dump(st.session_state.categories, f)
 
+
+def categorized_transactions(df):
+    df["Category"] = "Uncategorized"
+
+    for category, keywords in st.session_state.categories.items():
+        if category == "Uncategorized" or not keywords:
+            continue
+
+
+
+
+
 def load_transactions(file):
     try:
         df = pd.read_csv(file)
@@ -57,6 +69,8 @@ def main():
                     if new_category not in st.session_state.categories:
                         st.session_state.categories[new_category] = []
                         save_categories()
+                        st.success("Added a new category: {new_category}")
+                        st.rerun()
 
                 st.write(debits_df)
 
