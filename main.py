@@ -61,6 +61,9 @@ def add_keyword_to_categor(category, keyword):
     keyword = keyword.strip()
     if keyword and keyword not in st.session_state.categories[category]:
         st.session_state.categories[category].append(keyword)
+        save_categories()
+        return True
+    return False
 
 
 def main():
@@ -75,6 +78,8 @@ def main():
             debits_df = df[df["Debit/Credit"] == "Debit"].copy()
             credits_df = df[df["Debit/Credit"] == "Credit"].copy()
 
+            st.session_state.debits_df = debits_df.copy()
+
             tab1, tab2 =st.tabs(["Expense ( Debits)", "Payements ( Credits)"])
             with tab1:
                 new_category = st.text_input("New Category Name")
@@ -87,7 +92,8 @@ def main():
                         st.success("Added a new category: {new_category}")
                         st.rerun()
 
-                st.write(debits_df)
+                st.subheader("Your Expenses")
+                edited_df = st.data_editor()
 
             with tab2:
                 st.write(credits_df)
