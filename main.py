@@ -32,7 +32,11 @@ def categorized_transactions(df):
 
         lowered_keyword = [keyword.lower().strip() for keyword in keywords]
         for idx, row in df.iterrows():
-            details = row["Details"].lower()
+            details = row["Details"].lower().strips()
+            if details in lowered_keyword:
+                df.at[idx, "Category"] = category
+
+    return df
 
 
 
@@ -46,10 +50,17 @@ def load_transactions(file):
         df["Date"] = pd.to_datetime(df["Date"], format="%d %b %Y")
        
 
-        return df
+        return categorized_transactions(df)
+    
     except Exception as e:
         st.error(f"Error Processing file: {str(e)}")
         return None
+
+
+def add_keyword_to_categor(category, keyword):
+    keyword = keyword.strip()
+    if keyword and keyword not in st.session_state.categories[category]:
+        st.session_state.categories[category].append(keyword)
 
 
 def main():
