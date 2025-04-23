@@ -120,6 +120,9 @@ def main():
                         details = row["Details"]
                         st.session_state,debits_df.at[idx, "Category"] = new_category
                         add_keyword_to_category(new_category, details)
+
+                st.subheader("Expense Summary")
+                category_totals = st.session_state.debits_df.groupby("Category")["Amount"].sum().reset_index()
                          
 
 
