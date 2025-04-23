@@ -114,11 +114,13 @@ def main():
                 if save_button:
                     for idx, row in edited_df.iterrows():
                         new_category = row["Category"]
-                        if row["category"] == st.session_state.debits_df.at[idx, "Category"]:
+                        if new_category == st.session_state.debits_df.at[idx, "Category"]:
                             continue
 
                         details = row["Details"]
-                        new_category = row["Category"]
+                        st.session_state,debits_df.at[idx, "Category"] = new_category
+                        add_keyword_to_category(new_category, details)
+                         
 
 
             with tab2:
