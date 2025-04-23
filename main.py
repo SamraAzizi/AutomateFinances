@@ -123,6 +123,16 @@ def main():
 
                 st.subheader("Expense Summary")
                 category_totals = st.session_state.debits_df.groupby("Category")["Amount"].sum().reset_index()
+                category_totals = category_totals.sort_values("Amount", ascending=False)
+
+                st.dataframe(
+                    category_totals,
+                    column_config={
+                        "Amount": st.column_config.NumberColumn("Amount", format="%.2f AED")
+                    },
+                    use_container_width=True,
+                    hide_index=True
+                )
                          
 
 
