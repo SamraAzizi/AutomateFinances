@@ -97,14 +97,22 @@ def main():
                     st.session_state.debits_df[["Date", "Details", "Amount", "Category"]],
                     column_config={
                         "Date": st.column_config.DateColumn("Date", "DD/MM/YY")
-                        "Amount" :st.column_config.NumberColumn("Amount", format="%.2f AED"),
-                        "Category":st.column_config.SelectBoxColumn(
+                        "Amount" : st.column_config.NumberColumn("Amount", format="%.2f AED"),
+                        "Category": st.column_config.SelectBoxColumn(
                             "Category",
                             options=list(st.session_state.categories.keys())
 
                         )
-                    }
+                    },
+                    hide_index = True,
+                    use_container_width=True,
+                    key="category_editor"
+
                 )
+
+                save_button = st.button("Apply changes", type="primary")
+                if save_button:
+                    
 
             with tab2:
                 st.write(credits_df)
