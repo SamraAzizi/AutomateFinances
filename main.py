@@ -135,6 +135,15 @@ def main():
                 )
                          
 
+                fig = px.pie(
+                    category_totals,
+                    values="Amount",
+                    names="Category",
+                    title="Expenses by Category"
+                )
+
+                st.plotly_chat(fig, use_container_width=True)
+
 
             with tab2:
                 st.write(credits_df)
