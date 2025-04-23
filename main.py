@@ -96,7 +96,7 @@ def main():
                 edited_df = st.data_editor(
                     st.session_state.debits_df[["Date", "Details", "Amount", "Category"]],
                     column_config={
-                        "Date": st.column_config.DateColumn("Date", "DD/MM/YY")
+                        "Date": st.column_config.DateColumn("Date", format="DD/MM/YY")
                         "Amount" : st.column_config.NumberColumn("Amount", format="%.2f AED"),
                         "Category": st.column_config.SelectBoxColumn(
                             "Category",
@@ -112,7 +112,14 @@ def main():
 
                 save_button = st.button("Apply changes", type="primary")
                 if save_button:
-                    
+                    for idx, row in edited_df.iterrows():
+                        new_category = row["Category"]
+                        if row["category"] == st.session_state.debits_df.at[idx, "Category"]:
+                            continue
+
+                        details = row["Details"]
+                        new_category = row["Category"]
+
 
             with tab2:
                 st.write(credits_df)
