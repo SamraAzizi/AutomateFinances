@@ -14,3 +14,25 @@ A user-friendly finance dashboard built with Streamlit, allowing you to upload C
 ## 📁 CSV Format
 
 Your uploaded CSV should follow this format:
+
+
+Date,Details,Amount,Debit/Credit 01 Jan 2025,Grocery Store,150.00,Debit 02 Jan 2025,Salary,3000.00,Credit
+
+
+- **Date format**: DD MMM YYYY (e.g., 01 Jan 2025)
+- **Amount** can contain commas (e.g., 1,200.50)
+- **Debit/Credit** must specify whether it's an expense or income
+
+## 🧠 How Categorization Works
+
+- Transactions are assigned to "Uncategorized" by default.
+- You can manually assign categories in the table.
+- When you apply changes, the app saves the Details as a keyword under that category.
+- On the next upload, any matching transaction will be auto-categorized.
+
+## 🛠️ Tech Stack
+
+- **Streamlit** – UI and dashboard
+- **Pandas** – Data processing
+- **Plotly** – Interactive pie chart
+- **JSON** – Local storage for categories
