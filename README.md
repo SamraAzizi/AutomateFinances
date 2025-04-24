@@ -36,3 +36,28 @@ Date,Details,Amount,Debit/Credit 01 Jan 2025,Grocery Store,150.00,Debit 02 Jan 2
 - **Pandas** – Data processing
 - **Plotly** – Interactive pie chart
 - **JSON** – Local storage for categories
+
+## 📦 Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/your-username/simple-finance-dashboard.git
+cd simple-finance-dashboard
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+streamlit run main.py
+
+```
+
+## File Structure
+```bash
+simple-finance-dashboard/
+├── main.py               # Main Streamlit app
+├── categories.json       # Stores category keywords
+├── README.md             # You're reading it!
+└── requirements.txt      # Required Python packages
+
+```
