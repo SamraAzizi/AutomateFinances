@@ -2,16 +2,16 @@
 
 A user-friendly finance dashboard built with Streamlit, allowing you to upload CSV transaction files, categorize your expenses, and visualize your spending habits.
 
-## 🚀 Features
+##  Features
 
-- 📤 Upload CSV files containing transactions
-- 📂 Automatically or manually categorize expenses
-- ✏️ Add and edit categories dynamically
-- 📊 View total payments and categorized expenses
-- 🥧 Interactive pie chart of spending breakdown
-- 💾 Persistent category saving using `categories.json`
+-  Upload CSV files containing transactions
+-  Automatically or manually categorize expenses
+-  Add and edit categories dynamically
+-  View total payments and categorized expenses
+-  Interactive pie chart of spending breakdown
+-  Persistent category saving using `categories.json`
 
-## 📁 CSV Format
+##  CSV Format
 
 Your uploaded CSV should follow this format:
 
@@ -23,21 +23,21 @@ Date,Details,Amount,Debit/Credit 01 Jan 2025,Grocery Store,150.00,Debit 02 Jan 2
 - **Amount** can contain commas (e.g., 1,200.50)
 - **Debit/Credit** must specify whether it's an expense or income
 
-## 🧠 How Categorization Works
+##  How Categorization Works
 
 - Transactions are assigned to "Uncategorized" by default.
 - You can manually assign categories in the table.
 - When you apply changes, the app saves the Details as a keyword under that category.
 - On the next upload, any matching transaction will be auto-categorized.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Streamlit** – UI and dashboard
 - **Pandas** – Data processing
 - **Plotly** – Interactive pie chart
 - **JSON** – Local storage for categories
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Clone the repo
@@ -61,3 +61,9 @@ simple-finance-dashboard/
 └── requirements.txt      # Required Python packages
 
 ```
+
+## TODO/Improvements
+- Export updated categorized CSV
+- Show monthly trends using line charts
+- Authentication for multiple users
+- Merge similar keywords automatically
